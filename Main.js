@@ -147,7 +147,9 @@ const myPow = (a, b, myPrint) => {
  * Створіть функцію myMul(a, b), яка буде множити числа а і b, повертаючи результат.
  */
 
-// const myMul = () => {}
+ const myMul = (a, b) => {
+     return a * b;
+ }
 
 /*
  * Створіть функції myDouble(n), яка приймає один параметр і подвоює його.
@@ -155,18 +157,26 @@ const myPow = (a, b, myPrint) => {
  * Функція повертає результат обчислення.
  */
 
-// const myDouble
+function myDouble (n) {
+    let doublevalue = 2;
+    const together = myMul.bind(0, doublevalue);
+    return together(n);
+}
 
-// console.log(myDouble(3)) // = myMul(2, 3) = 6
-// console.log(myDouble(4)) // = myMul(2, 4) = 8
-// console.log(myDouble(5)) // = myMul(2, 5) = 10
+ console.log(myDouble(3)) // = myMul(2, 3) = 6
+ console.log(myDouble(4)) // = myMul(2, 4) = 8
+ console.log(myDouble(5)) // = myMul(2, 5) = 10
 
 // Аналогічним чином створюємо функцію myTriple(n), яка потроює параметр, що приймає, повертаючи результат.
 
-// const myTriple
+ function myTriple (n){
+    let triplevalue = 3;
+    const together = myMul.bind(0, triplevalue);
+    return together(n);
+}
 
-// console.log(myTriple(3)) // = myMul(3, 3) = 9
-// console.log(myTriple(4)) // = myMul(3, 4) = 12
-// console.log(myTriple(5)) // = myMul(3, 5) = 15
+ console.log(myTriple(3)) // = myMul(3, 3) = 9
+ console.log(myTriple(4)) // = myMul(3, 4) = 12
+ console.log(myTriple(5)) // = myMul(3, 5) = 15
 
 // export { counter, counterFactory, myPow, myMax, myMul, myDouble, myTriple }
