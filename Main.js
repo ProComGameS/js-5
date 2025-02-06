@@ -9,19 +9,28 @@ console.log('#5. JavaScript homework example file')
  * якщо ні - то лічба триває
  */
 
-// const counter = function() {}
+const counter = (function() {
+    let count = 0;
 
-// console.log(counter()) // 0
-// console.log(counter()) // 1
-// console.log(counter(100)) // 100
-// console.log(counter()) // 101
-// console.log(counter()) // 102
-// console.log(counter(500)) // 500
-// console.log(counter()) // 501
-// console.log(counter()) // 502
-// console.log(counter(0)) // 0
-// console.log(counter()) // 0
-// console.log(counter()) // 1
+    return function(n) {
+        if (typeof n === 'number') {
+            count = n;
+        }
+        return count++;
+    };
+})();
+
+ console.log(counter()) // 0
+ console.log(counter()) // 1
+ console.log(counter(100)) // 100
+ console.log(counter()) // 101
+ console.log(counter()) // 102
+ console.log(counter(500)) // 500
+ console.log(counter()) // 501
+ console.log(counter()) // 502
+ console.log(counter(0)) // 0
+ console.log(counter()) // 0
+ console.log(counter()) // 1
 
 /*
  * #2
@@ -34,22 +43,44 @@ console.log('#5. JavaScript homework example file')
  * counterFactory.decrement() - зменшує значення лічильника на 1
  */
 
-// const counterFactory = function () {}
+const counterFactory = (function () {
+    let counter = 0;
 
-// console.log(counterFactory.value()) // 0
-// counterFactory.increment()
-// counterFactory.increment()
-// counterFactory.increment()
-// console.log(counterFactory.value()) // 3
-// counterFactory.decrement()
-// counterFactory.decrement()
-// console.log(counterFactory.value()) // 1
-// console.log(counterFactory.value(100)) // 100
-// counterFactory.decrement()
-// console.log(counterFactory.value()) // 99
-// console.log(counterFactory.value(200)) // 200
-// counterFactory.increment()
-// console.log(counterFactory.value()) // 201
+    return {
+        value: function (n) {
+            if (arguments.length === 0) {
+                return counter;
+            } else {
+                counter = n;
+                return counter;
+            }
+        },
+        increment: function () {
+            counter++;
+            return counter;
+        },
+        decrement: function () {
+            counter--;
+            return counter;
+        },
+    };
+})();
+
+
+ console.log(counterFactory.value()) // 0
+ counterFactory.increment()
+ counterFactory.increment()
+ counterFactory.increment()
+ console.log(counterFactory.value()) // 3
+ counterFactory.decrement()
+ counterFactory.decrement()
+ console.log(counterFactory.value()) // 1
+ console.log(counterFactory.value(100)) // 100
+ counterFactory.decrement()
+ console.log(counterFactory.value()) // 99
+ console.log(counterFactory.value(200)) // 200
+ counterFactory.increment()
+ console.log(counterFactory.value()) // 201
 
 /*
  * #3
@@ -114,4 +145,4 @@ console.log('#5. JavaScript homework example file')
 // console.log(myTriple(4)) // = myMul(3, 4) = 12
 // console.log(myTriple(5)) // = myMul(3, 5) = 15
 
-export { counter, counterFactory, myPow, myMax, myMul, myDouble, myTriple }
+// export { counter, counterFactory, myPow, myMax, myMul, myDouble, myTriple }
