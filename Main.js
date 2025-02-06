@@ -134,10 +134,12 @@ const myPow = (a, b, myPrint) => {
  * У реалізації функції має бути застосовано метод Math.max() і apply().
  */
 
-// const list = [12, 23, 100, 34, 56, 9, 233]
-// const myMax = () => {}
+ const list = [12, 23, 100, 34, 56, 9, 233]
+ const myMax = (arr) => {
+    return Math.max.apply(Math, arr);
+ }
 
-// console.log(myMax(list)); // 233
+ console.log(myMax(list)); // 233
 
 /*
  * #5
