@@ -96,13 +96,35 @@ const counterFactory = (function () {
  * console.log(myPow(2, -2, myPrint)) // 2^-2=0.25
  */
 
-// const myPrint = () => {}
-// const myPow = () => {}
 
-// console.log(myPow(3, 4, myPrint)) // 3^4=81
-// console.log(myPow(2, 3, myPrint)) // 2^3=8
-// console.log(myPow(2, 0, myPrint)) // 2^0=1
-// console.log(myPow(2, -2, myPrint)) // 2^-2=0.25
+const myPrint = (a, b, res) => {
+    return `${a}^${b}=${res}`;
+};
+
+
+const myPow = (a, b, myPrint) => {
+    let res;
+
+    if (b === 0) { // в степені 0 все буде 1
+        res = 1;
+    } else if (b > 0) { // +
+        res = a;
+        for (let stepin = 1; stepin < b; stepin++) {
+            res *= a;
+        }
+    } else { // -
+        res = 1 / a;
+        for (let stepin = 1; stepin < Math.abs(b); stepin++) {
+            res /= a;
+        }
+    }
+    return myPrint(a, b, res);
+};
+
+ console.log(myPow(3, 4, myPrint)) // 3^4=81
+ console.log(myPow(2, 3, myPrint)) // 2^3=8
+ console.log(myPow(2, 0, myPrint)) // 2^0=1
+ console.log(myPow(2, -2, myPrint)) // 2^-2=0.25
 
 
 /*
